@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TechnologyList from './components/TechnologyList';
+import Footer from './components/Footer';
 
 function App() {
   const [selectedStack, setSelectedStack] = useState([]);
@@ -18,6 +19,8 @@ function App() {
         selectedStack={selectedStack}
         setSelectedStack={setSelectedStack}
       />
+
+      <Footer />
 
       <ToastContainer
         position="bottom-right"
