@@ -16,7 +16,12 @@ function Navbar() {
 
             <span className="text-xl font-bold tracking-tight">
               <span className="text-slate-900">Dev </span>
-              <span className="font-extrabold text-pink-600">Stack</span>
+              <span
+                className="font-extrabold bg-clip-text text-transparent"
+                style={{ backgroundImage: 'var(--brand-gradient)' }}
+              >
+                Stack
+              </span>
             </span>
           </div>
 
@@ -58,14 +63,16 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Auth */}
+          {/* Buttons */}
           <div className="flex items-center gap-3">
             <button className="text-sm font-medium text-slate-700 hover:text-pink-600">
               Sign In
             </button>
 
-            {/* Solid pink — NO gradient */}
-            <button className="rounded-full bg-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700">
+            <button
+              className="rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
+              style={{ backgroundImage: 'var(--brand-gradient)' }}
+            >
               Sign Up
             </button>
           </div>
@@ -90,7 +97,12 @@ function Navbar() {
 
             <span className="text-lg font-bold">
               <span className="text-slate-900">Dev </span>
-              <span className="font-extrabold text-pink-600">Stack</span>
+              <span
+                className="font-extrabold bg-clip-text text-transparent"
+                style={{ backgroundImage: 'var(--brand-gradient)' }}
+              >
+                Stack
+              </span>
             </span>
           </div>
 
@@ -100,8 +112,10 @@ function Navbar() {
               Sign In
             </button>
 
-            {/* Solid pink — NO gradient */}
-            <button className="rounded-full bg-pink-600 px-3 py-1.5 text-xs font-semibold text-white">
+            <button
+              className="rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:opacity-90"
+              style={{ backgroundImage: 'var(--brand-gradient)' }}
+            >
               Sign Up
             </button>
           </div>
