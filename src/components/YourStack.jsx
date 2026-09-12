@@ -32,8 +32,8 @@ function YourStack({ selectedStack, setSelectedStack }) {
         <p className="mt-1 text-[12px] text-slate-400">
           {selectedStack.length === 0
             ? 'No technologies selected yet.'
-            : `${selectedStack.length} Technology${
-                selectedStack.length > 1 ? 'ies' : 'y'
+            : `${selectedStack.length} ${
+                selectedStack.length === 1 ? 'Technology' : 'Technologies'
               } Selected`}
         </p>
       </div>
