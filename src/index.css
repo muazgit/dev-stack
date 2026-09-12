@@ -2,4 +2,11 @@
 
 :root {
   font-family: "Inter", sans-serif;
+
+  --brand-gradient: linear-gradient(
+    90deg,
+    #f97316,
+    #ec4899,
+    #7c3aed
+  );
 }

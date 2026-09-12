@@ -37,10 +37,7 @@ function TechnologyList({ selectedStack, setSelectedStack }) {
         {/* Section Heading */}
         <div className="mb-10">
           <h2 className="text-4xl font-bold leading-tight tracking-tight text-slate-900">
-            Explore the{' '}
-            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent">
-              Technologies
-            </span>
+            Explore the <span className="text-[#d91b7e]">Technologies</span>
           </h2>
 
           <p className="mt-2 text-[14px] font-normal leading-6 text-slate-400">

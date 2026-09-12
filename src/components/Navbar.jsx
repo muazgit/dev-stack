@@ -8,14 +8,15 @@ function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Desktop Navbar */}
         <div className="hidden h-20 items-center justify-between md:flex">
-          {/* Brand Icon */}
+          {/* Brand */}
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 text-sm font-bold text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-b from-pink-500 to-violet-600 text-xs font-extrabold tracking-tight text-white">
               DS
             </div>
 
-            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-xl font-bold text-transparent">
-              Dev Stack
+            <span className="text-xl font-bold tracking-tight">
+              <span className="text-slate-900">Dev </span>
+              <span className="font-extrabold text-pink-600">Stack</span>
             </span>
           </div>
 
@@ -23,35 +24,35 @@ function Navbar() {
           <div className="flex items-center gap-8">
             <a
               href="#"
-              className="text-sm font-medium text-gray-700 hover:text-pink-500"
+              className="text-sm font-medium text-slate-700 hover:text-pink-600"
             >
               Home
             </a>
 
             <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-pink-500"
+              href="#technologies"
+              className="text-sm font-medium text-slate-700 hover:text-pink-600"
             >
               Technologies
             </a>
 
             <a
               href="#"
-              className="text-sm font-medium text-gray-700 hover:text-pink-500"
+              className="text-sm font-medium text-slate-700 hover:text-pink-600"
             >
               Projects
             </a>
 
             <a
               href="#"
-              className="text-sm font-medium text-gray-700 hover:text-pink-500"
+              className="text-sm font-medium text-slate-700 hover:text-pink-600"
             >
               About
             </a>
 
             <a
               href="#"
-              className="text-sm font-medium text-gray-700 hover:text-pink-500"
+              className="text-sm font-medium text-slate-700 hover:text-pink-600"
             >
               Contact
             </a>
@@ -59,11 +60,12 @@ function Navbar() {
 
           {/* Auth */}
           <div className="flex items-center gap-3">
-            <button className="text-sm font-medium text-gray-700 hover:text-pink-500">
+            <button className="text-sm font-medium text-slate-700 hover:text-pink-600">
               Sign In
             </button>
 
-            <button className="rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-5 py-2 text-sm font-semibold text-white transition hover:opacity-90">
+            {/* Solid pink — NO gradient */}
+            <button className="rounded-full bg-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700">
               Sign Up
             </button>
           </div>
@@ -73,6 +75,7 @@ function Navbar() {
         <div className="flex h-16 items-center justify-between md:hidden">
           {/* Hamburger */}
           <button
+            onClick={() => setMenuOpen(!menuOpen)}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 text-gray-700"
             aria-label="Open menu"
           >
@@ -81,26 +84,54 @@ function Navbar() {
 
           {/* Mobile Brand */}
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 text-xs font-bold text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-b from-pink-500 to-violet-600 text-xs font-extrabold text-white">
               DS
             </div>
 
-            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-lg font-bold text-transparent">
-              Dev Stack
+            <span className="text-lg font-bold">
+              <span className="text-slate-900">Dev </span>
+              <span className="font-extrabold text-pink-600">Stack</span>
             </span>
           </div>
 
           {/* Mobile Buttons */}
           <div className="flex items-center gap-2">
-            <button className="text-xs font-medium text-gray-700">
+            <button className="text-xs font-medium text-slate-700">
               Sign In
             </button>
 
-            <button className="rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-3 py-1.5 text-xs font-semibold text-white">
+            {/* Solid pink — NO gradient */}
+            <button className="rounded-full bg-pink-600 px-3 py-1.5 text-xs font-semibold text-white">
               Sign Up
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="border-t border-gray-100 py-4 md:hidden">
+            <div className="flex flex-col gap-4">
+              <a href="#" className="text-sm font-medium text-slate-700">
+                Home
+              </a>
+              <a
+                href="#technologies"
+                className="text-sm font-medium text-slate-700"
+              >
+                Technologies
+              </a>
+              <a href="#" className="text-sm font-medium text-slate-700">
+                Projects
+              </a>
+              <a href="#" className="text-sm font-medium text-slate-700">
+                About
+              </a>
+              <a href="#" className="text-sm font-medium text-slate-700">
+                Contact
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

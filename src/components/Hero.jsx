@@ -9,7 +9,10 @@ function Hero() {
           <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 lg:text-6xl">
             Build Your Ideal
             <br />
-            <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: 'var(--brand-gradient)' }}
+            >
               Development Stack
             </span>
           </h1>
@@ -22,7 +25,10 @@ function Hero() {
 
           {/* Buttons */}
           <div className="mt-9 flex flex-wrap gap-3">
-            <button className="rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">
+            <button
+              className="rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90"
+              style={{ backgroundImage: 'var(--brand-gradient)' }}
+            >
               Explore Technologies
             </button>
 
