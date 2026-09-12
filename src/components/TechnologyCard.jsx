@@ -1,75 +1,78 @@
+import { toast } from 'react-toastify';
+
 function TechnologyCard({ technology, selectedStack, setSelectedStack }) {
   const isAdded = selectedStack.some(item => item.id === technology.id);
 
   const handleAddToStack = () => {
-    if (isAdded) return;
+    // Duplicate technology
+    if (isAdded) {
+      toast.warning(`${technology.name} is already in your stack!`);
+      return;
+    }
 
+    // Add technology
     setSelectedStack([...selectedStack, technology]);
+
+    toast.success(`${technology.name} added to your stack!`);
   };
 
   return (
-    <article className="flex min-h-[282px] w-full flex-col rounded-2xl border border-slate-100 bg-white p-5 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)]">
-      {/* Top */}
+    <article className="flex min-h-[194px] flex-col rounded-xl border border-slate-200 bg-white p-4">
+      {/* Icon + Badge */}
       <div className="flex items-start justify-between">
-        {/* Icon */}
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+        <div className="flex h-10 w-10 items-center justify-center">
           <img
             src={technology.icon}
             alt={`${technology.name} icon`}
-            className="h-7 w-7 object-contain"
+            className="h-8 w-8 object-contain"
           />
         </div>
 
-        {/* Badge */}
-        <span className="rounded-full border border-orange-100 bg-orange-50 px-[10px] py-[2px] text-[11px] font-semibold leading-[18px] text-orange-600">
+        <span className="rounded-full bg-orange-50 px-3 py-1 text-[10px] font-semibold text-orange-600">
           {technology.badge}
         </span>
       </div>
 
-      {/* Title */}
-      <h3 className="mt-1 text-[18px] font-bold leading-7 text-slate-900">
+      {/* Name */}
+      <h3 className="mt-4 text-[18px] font-bold text-slate-900">
         {technology.name}
       </h3>
 
       {/* Description */}
-      <p className="mt-1 line-clamp-3 text-[12px] font-normal leading-[19.5px] text-slate-500">
+      <p className="mt-2 line-clamp-3 text-[12px] leading-5 text-slate-500">
         {technology.description}
       </p>
 
-      {/* Bottom Content */}
+      {/* Bottom Information */}
       <div className="mt-auto">
-        {/* Divider */}
-        <div className="mt-4 border-t border-slate-50 pt-2">
-          <div className="flex items-center justify-between">
-            {/* Category */}
-            <span className="rounded bg-slate-100/80 px-2 py-[2px] text-[11px] font-medium leading-[17px] text-slate-600">
+        <div className="mt-4 flex items-center justify-between gap-2">
+          <div className="flex gap-2">
+            <span className="rounded bg-slate-50 px-2 py-1 text-[10px] font-medium text-slate-500">
               {technology.category}
             </span>
 
-            {/* Difficulty */}
-            <span className="text-[11px] font-medium text-slate-500">
+            <span className="rounded bg-slate-50 px-2 py-1 text-[10px] font-medium text-slate-500">
               {technology.difficulty}
             </span>
+          </div>
 
-            {/* Rating */}
-            <div className="flex items-center gap-1">
-              <span className="text-[12px] text-amber-400">★</span>
+          <div className="flex items-center gap-1 text-[11px]">
+            <span className="text-yellow-400">★</span>
 
-              <span className="text-[11px] font-semibold text-slate-600">
-                {technology.rating}
-              </span>
-            </div>
+            <span className="font-semibold text-slate-600">
+              {technology.rating}
+            </span>
           </div>
         </div>
 
-        {/* Button */}
+        {/* Add Button */}
         <button
           onClick={handleAddToStack}
           disabled={isAdded}
-          className={`mt-4 flex h-10 w-full items-center justify-center rounded-lg px-3 text-[12px] font-medium transition ${
+          className={`mt-4 w-full rounded-lg px-3 py-2.5 text-[11px] font-semibold transition ${
             isAdded
               ? 'cursor-not-allowed bg-slate-200 text-slate-500'
-              : 'bg-[#0a0f1d] text-white hover:bg-slate-800'
+              : 'bg-slate-950 text-white hover:bg-slate-800'
           }`}
         >
           {isAdded ? '✓ Added to Stack' : 'Add to Stack'}

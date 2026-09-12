@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TechnologyList from './components/TechnologyList';
@@ -14,6 +17,14 @@ function App() {
       <TechnologyList
         selectedStack={selectedStack}
         setSelectedStack={setSelectedStack}
+      />
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
       />
     </div>
   );
