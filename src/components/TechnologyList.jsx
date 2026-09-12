@@ -7,7 +7,7 @@ function TechnologyList({ selectedStack, setSelectedStack }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/src/data/technologies.json')
+    fetch('/technologies.json')
       .then(response => response.json())
       .then(data => {
         setTechnologies(data);
