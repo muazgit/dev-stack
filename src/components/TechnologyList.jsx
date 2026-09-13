@@ -7,17 +7,20 @@ function TechnologyList({ selectedStack, setSelectedStack }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/technologies.json')
-      .then(response => response.json())
-      .then(data => {
-        setTechnologies(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Failed to load technologies:', error);
-        setLoading(false);
-      });
-  }, []);
+  async function loadTechnologies() {
+    try {
+      const response = await fetch('/technologies.json');
+      const data = await response.json();
+      setTechnologies(data);
+    } catch (error) {
+      console.error('Failed to load technologies:', error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  loadTechnologies();
+}, []);
 
   if (loading) {
     return (
