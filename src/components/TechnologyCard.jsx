@@ -1,5 +1,15 @@
 import { toast } from 'react-toastify';
-
+const badgeColors = {
+  Popular: 'bg-pink-50 text-pink-600',
+  Essential: 'bg-violet-50 text-violet-600',
+  Fast: 'bg-orange-50 text-orange-600',
+  Lightweight: 'bg-sky-50 text-sky-600',
+  Flexible: 'bg-emerald-50 text-emerald-600',
+  'Top SQL': 'bg-indigo-50 text-indigo-600',
+  Handy: 'bg-teal-50 text-teal-600',
+  Containers: 'bg-blue-50 text-blue-600',
+  Automation: 'bg-amber-50 text-amber-600',
+};
 function TechnologyCard({ technology, selectedStack, setSelectedStack }) {
   const isAdded = selectedStack.some(item => item.id === technology.id);
 
@@ -15,7 +25,8 @@ function TechnologyCard({ technology, selectedStack, setSelectedStack }) {
 
     toast.success(`${technology.name} added to your stack!`);
   };
-
+const badgeClass =
+  badgeColors[technology.badge] || 'bg-slate-50 text-slate-600';
   return (
     <article className="flex min-h-[194px] flex-col rounded-xl border border-slate-200 bg-white p-4">
       {/* Icon + Badge */}
@@ -28,7 +39,9 @@ function TechnologyCard({ technology, selectedStack, setSelectedStack }) {
           />
         </div>
 
-        <span className="rounded-full bg-orange-50 px-3 py-1 text-[10px] font-semibold text-orange-600">
+        <span
+          className={`rounded-full px-3 py-1 text-[10px] font-semibold ${badgeClass}`}
+        >
           {technology.badge}
         </span>
       </div>
